@@ -22,24 +22,6 @@ async function pruebaConexion() {
 
 pruebaConexion();
 
-async function crearUsuario() {
-  try {
-    await User.create({
-      firstName: 'Danny',
-      userName: 'drosa3',
-      lastName: 'Rosa',
-      email: 'dannycantarero2@gmail.com',
-      phone: '96198924',
-      password: 'password'
-    })
-    console.log('Usuario creado exitosamente')
-  }catch(error){
-    console.error('Usuario no fue creado', error)
-  }
-}
-crearUsuario();
-
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -50,8 +32,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/api/", indexRouter);
+app.use("/api/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
