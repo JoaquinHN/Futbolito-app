@@ -8,6 +8,8 @@ const User = require("./models/user");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const registerRouter = require("./routes/register")
+const loginRouter = require("./routes/login")
 
 const app = express();
 
@@ -34,6 +36,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api/", indexRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/register",registerRouter)
+app.use("/api/login",loginRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
