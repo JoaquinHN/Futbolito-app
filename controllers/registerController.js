@@ -9,7 +9,12 @@ module.exports = {
 
     // Definir el esquema de validación con Joi
     const schema = Joi.object({
-      userName: Joi.string().alphanum().min(3).max(30).required(),
+      userName: Joi.string()
+        .alphanum()
+        .min(3)
+        .max(30)
+        .required()
+        .pattern(new RegExp(`^[a-zA-Z]+[a-zA-Z0-9]*$`)),
       firstName: Joi.string().alphanum().min(3).max(30).required(),
       lastName: Joi.string().alphanum().min(3).max(30).required(),
       email: Joi.string().email().required(),

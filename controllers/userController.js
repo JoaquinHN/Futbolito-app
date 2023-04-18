@@ -4,7 +4,12 @@ const Joi = require("joi");
 const sanitizeHtml = require("sanitize-html");
 
 const updateUserSchema = Joi.object({
-  userName: Joi.string().alphanum().min(3).max(30).required(),
+  userName: Joi.string()
+    .alphanum()
+    .min(3)
+    .max(30)
+    .required()
+    .pattern(new RegExp(`^[a-zA-Z]+[a-zA-Z0-9]*$`)),
   firstName: Joi.string().min(2).max(30).required(),
   lastName: Joi.string().min(2).max(30).required(),
   email: Joi.string().email().required(),
