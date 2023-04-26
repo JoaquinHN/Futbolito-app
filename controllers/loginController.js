@@ -14,7 +14,7 @@ const limiter = rateLimit({
 // Definir el esquema de validación con Joi
 const loginSchema = Joi.object({
   email: Joi.string().email().required(),
-  password: Joi.string().min(8).required(),
+  password: Joi.string().required(),
 });
 
 module.exports = {
